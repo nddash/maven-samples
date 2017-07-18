@@ -1,0 +1,17 @@
+##Assumption - you have a cloned github repo at your local
+##pip is installed
+## install the gitpython as blow
+##/C/Python27/Scripts/pip2.7.exe install gitpython
+
+
+from git import Repo
+
+repo_dir = '.'
+##note - repo_dir is the directory where the files are staged
+repo = Repo(repo_dir)
+file_list = ['test12','test123']
+commit_message = 'Add simple regression analysis'
+repo.index.add(file_list)
+repo.index.commit(commit_message)
+origin = repo.remote('origin')
+origin.push()
